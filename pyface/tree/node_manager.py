@@ -118,7 +118,7 @@ class NodeManager(HasPrivateTraits):
         try:
             key = hash(node)
 
-        except:
+        except BaseException as e:
             key = id(node)
 
         return key
