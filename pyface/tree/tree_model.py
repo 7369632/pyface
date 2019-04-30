@@ -100,7 +100,7 @@ class TreeModel(HasTraits):
         try:
             key = hash(node)
 
-        except:
+        except BaseException as e:
             key = id(node)
 
         return key
@@ -181,7 +181,7 @@ class TreeModel(HasTraits):
 
         return
 
-    def fire_nodes_removed(self, parent, children):
+    def fire_nodes_removed(self, node, children):
         """ Fires the nodes removed event. """
 
         self.nodes_removed = NodeEvent(node=node, children=children)
